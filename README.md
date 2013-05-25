@@ -1,6 +1,6 @@
 # SampleFile
 
-TODO: Write a gem description
+The SampleFile gem provides an easy way to generate files while testing.
 
 ## Installation
 
@@ -18,7 +18,26 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+# returns an image file
+SampleFile.image 
+SampleFile.image :jpg
+SampleFile.image :gif
+SampleFile.image :png
+
+# absolute path to image
+SampleFile.image_path 
+SampleFile.image_path :jpg
+SampleFile.image_path :gif
+SampleFile.image_path :png
+
+# returns a video file
+SampleFile.video
+
+# absolute path to video file
+SampleFile.video_path 
+
+```
 
 ## Contributing
 
