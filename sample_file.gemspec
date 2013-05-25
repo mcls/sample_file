@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["maartencls@gmail.com"]
   spec.description   = %q{Sample files for testing purposes}
   spec.summary       = %q{Sample files for testing purposes}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/mcls/sample_file"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
