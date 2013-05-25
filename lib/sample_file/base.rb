@@ -4,6 +4,10 @@ module SampleFile
       File.open file_path(type)
     end
 
+    def file_path(type=nil)
+      raise NotImplementedError, "#{self.class} does not implement the file_path method"
+    end
+
     protected
 
     def base_path
