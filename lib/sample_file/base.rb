@@ -13,5 +13,15 @@ module SampleFile
     def base_path
       @base_path ||= File.expand_path File.join(File.dirname(__FILE__), '..', 'files')
     end
+
+    class << self
+      def method_missing method, *args
+        instance.send method, *args
+      end
+
+      def instance
+        @@instance ||= self.new
+      end
+    end
   end
 end

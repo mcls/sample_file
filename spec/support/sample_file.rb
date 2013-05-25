@@ -1,4 +1,5 @@
 shared_examples_for 'a sample file' do |file_types=[]|
+  subject { described_class }
 
   describe :file_path do
     context "when no file type is provided" do
