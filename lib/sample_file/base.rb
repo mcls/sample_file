@@ -19,6 +19,11 @@ module SampleFile
         instance.send method, *args
       end
 
+      def respond_to? method
+        return true if instance.respond_to? method
+        super
+      end
+
       def instance
         @@instance ||= self.new
       end
