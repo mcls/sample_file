@@ -6,8 +6,8 @@ module SampleFile
 
     def initialize(type='png', opts={})
       @type = type
-      @width = opts[:width]
-      @height = opts[:height]
+      @width  = opts[:width]  || opts[:height]
+      @height = opts[:height] || opts[:width]
     end
 
     def file_path

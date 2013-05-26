@@ -28,6 +28,24 @@ describe SampleFile::Image do
             image['height'].should == 200
           end
         end
+
+        context "when only :width is set" do
+          subject { described_class.new(image_type, width: 35) }
+          it "returns a square image" do
+            image = MiniMagick::Image.open subject.file.path
+            image['width'].should == 35
+            image['height'].should eq image['width']
+          end
+        end
+
+        context "when only :height is set" do
+          subject { described_class.new(image_type, height: 45) }
+          it "returns a square image" do
+            image = MiniMagick::Image.open subject.file.path
+            image['width'].should == 45
+            image['height'].should eq image['width']
+          end
+        end
       end
 
       describe :file_path do
