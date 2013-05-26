@@ -1,3 +1,7 @@
+require "rubygems"
+require "bundler/setup"
+require "mini_magick"
+
 require "sample_file/version"
 require "sample_file/base"
 require "sample_file/image"

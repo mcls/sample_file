@@ -13,8 +13,9 @@ describe SampleFile::Image do
     context "when requesting a '#{image_type}' image" do
       describe :file do
         it "is of the correct content type" do
-          data = ImageSpec.new(subject.file(image_type))
-          data.content_type.should == content_type
+          file = subject.file(image_type)
+          data = MiniMagick::Image.open file.path
+          data.mime_type.should == content_type
         end
       end
     end
