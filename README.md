@@ -1,6 +1,7 @@
 # SampleFile
 
-The SampleFile gem provides an easy way to generate files while testing.
+The SampleFile gem provides an easy way to generate files while testing.  
+*Currently you can generate images and videos.*
 
 ## Installation
 
