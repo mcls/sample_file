@@ -1,6 +1,6 @@
 module SampleFile
   class Base
-    def file(type=nil)
+    def file(type=nil, opts={})
       File.open file_path(type)
     end
 

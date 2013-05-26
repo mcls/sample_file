@@ -17,6 +17,15 @@ describe SampleFile::Image do
           data = MiniMagick::Image.open file.path
           data.mime_type.should == content_type
         end
+
+        context "when passing :width and :height options" do
+          it "returns an image of those dimensions" do
+            image = subject.file(image_type, width: 75, height: 200)
+            data = MiniMagick::Image.open image.path
+            data['width'].should == 75
+            data['height'].should == 200
+          end
+        end
       end
     end
   end
