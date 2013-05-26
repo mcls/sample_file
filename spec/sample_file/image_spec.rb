@@ -10,6 +10,7 @@ describe SampleFile::Image do
   }
 
   image_types.each_pair do |image_type, content_type|
+
     context "when requesting a '#{image_type}' image" do
       describe :file do
         it "is of the correct content type" do
@@ -27,7 +28,22 @@ describe SampleFile::Image do
           end
         end
       end
+
+      describe :file_path do
+        context "when passing :width and :height options" do
+          it "returns a path to an image with those dimensions" do
+            path = subject.file_path(image_type, width: 75, height: 200)
+            path.should match(/sample_75x200\.#{image_type}$/)
+          end
+
+          it "returns a path to an image that exists" do
+            path = subject.file_path(image_type, width: 75, height: 200)
+            File.exists?(path).should be_true
+          end
+        end
+      end
     end
+
   end
 
 end
