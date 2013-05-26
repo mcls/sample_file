@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'fileutils'
 
 describe SampleFile::Image do
   it_behaves_like "a sample file", %w(gif png jpg)
@@ -32,6 +33,9 @@ describe SampleFile::Image do
       describe :file_path do
         context "when passing :width and :height options" do
           subject { described_class.new(image_type, width: 75, height: 200) }
+          before(:each) do
+            FileUtils.rm_r(subject.tmpdir)
+          end
           its(:file_path) { should match(/sample_75x200\.#{image_type}$/) }
           it "returns a path to an image that exists" do
             path = subject.file_path
