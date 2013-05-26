@@ -10,19 +10,19 @@ require "sample_file/video"
 module SampleFile
   class << self
     def image(type='png', opts={})
-      Image.file(type, opts)
+      Image.new(type, opts).file
     end
 
-    def image_path(type='png')
-      Image.file_path(type)
+    def image_path(type='png', opts={})
+      Image.new(type, opts).file_path
     end
 
-    def video(type='h264')
-      Video.file(type)
+    def video(type='h264', opts={})
+      Video.new(type, opts).file
     end
 
-    def video_path(type='h264')
-      Video.file_path(type)
+    def video_path(type='h264', opts={})
+      Video.new(type, opts).file_path
     end
   end
 end

@@ -2,16 +2,20 @@ require 'fileutils'
 
 module SampleFile
   class Image < Base
-    def file_path(type='png', opts={})
-      if opts[:width] && opts[:height]
-        resized_file_path(type, opts[:width], opts[:height])
+    attr_reader :type, :width, :height
+
+    def initialize(type='png', opts={})
+      @type = type
+      @width = opts[:width]
+      @height = opts[:height]
+    end
+
+    def file_path
+      if width && height
+        resized_file_path(type, width, height)
       else
         path_to_image(type)
       end
-    end
-
-    def file(type='png', opts={})
-      super(type, opts)
     end
 
     protected

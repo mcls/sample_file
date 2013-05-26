@@ -1,6 +1,10 @@
 module SampleFile
   class Video < Base
-    def file_path(type='h264')
+    def initialize(type='h264', opts={})
+      # TODO Implement provide samples of multiple video codecs
+    end
+
+    def file_path
       File.join(video_dir_path, 'h264.mp4')
     end
 
