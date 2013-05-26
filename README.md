@@ -15,6 +15,10 @@ And then execute:
 Or install it yourself as:
 
     $ gem install sample_file
+    
+##### Requirements
+    
+If you are going to use custom image sizes, you must have ImageMagick or GraphicsMagick installed.
 
 ## Usage
 
