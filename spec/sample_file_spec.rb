@@ -1,32 +1,24 @@
 require 'spec_helper'
 
 describe SampleFile do
+  %w(Image Video).each do |class_name|
+    klass = const_get("SampleFile::#{class_name}")
 
-  describe :image do
-    it "should call #file on a new instance of Image" do
-      described_class::Image.should_receive(:file)
-      described_class.image
+    file_method = class_name.downcase
+    describe file_method do
+      it "should call #file on an instance of #{class_name}" do
+        klass.any_instance.should_receive(:file)
+        described_class.send file_method
+      end
     end
-  end
 
-  describe :image_path do
-    it "should call #file_path on Image" do
-      described_class::Image.should_receive(:file_path)
-      described_class.image_path
+    file_path_method = "#{file_method}_path"
+    describe file_path_method do
+      it "should call #file_path on an instance of #{class_name}" do
+        klass.any_instance.should_receive(:file_path)
+        described_class.send file_path_method
+      end
     end
-  end
 
-  describe :video do
-    it "should call #file on Video" do
-      described_class::Video.should_receive(:file)
-      described_class.video
-    end
-  end
-
-  describe :video_path do
-    it "should call #file_path on Video" do
-      described_class::Video.should_receive(:file_path)
-      described_class.video_path
-    end
   end
 end

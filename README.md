@@ -24,12 +24,14 @@ SampleFile.image
 SampleFile.image :jpg
 SampleFile.image :gif
 SampleFile.image :png
+SampleFile.image :jpg, width: 300, height: 50
 
 # absolute path to image
 SampleFile.image_path 
 SampleFile.image_path :jpg
 SampleFile.image_path :gif
 SampleFile.image_path :png
+SampleFile.image_path :jpg, width: 300, height: 50
 
 # returns a video file
 SampleFile.video
