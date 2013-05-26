@@ -14,26 +14,29 @@ module SampleFile
       if width && height
         resized_file_path(type, width, height)
       else
-        path_to_image(type)
+        path_to_image
       end
     end
 
     protected
 
-    def path_to_image(ext, opts={})
-      filename = determine_filename ext, opts
-      if opts[:width] && opts[:height]
+    def path_to_image
+      if width && height
         File.join(tmpdir, filename)
       else
         File.join(base_path, 'image', filename)
       end
     end
 
-    def determine_filename(ext, opts={})
-      if opts[:width] && opts[:height]
-        "sample_#{opts[:width]}x#{opts[:height]}.#{ext}"
+    def filename
+      @filename ||= determine_filename
+    end
+
+    def determine_filename
+      if width && height
+        "sample_#{width}x#{height}.#{type}"
       else
-        "sample.#{ext}"
+        "sample.#{type}"
       end
     end
 
@@ -55,7 +58,6 @@ module SampleFile
     end
 
     def resized_file_path(type, width, height)
-      filename = determine_filename(type, width: width, height: height)
       path = File.join(tmpdir, filename)
       create_resized_image(type, width, height, path) unless File.exists?(path)
       path
