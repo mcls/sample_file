@@ -1,6 +1,6 @@
 # SampleFile
 
-[![Gem Version](https://badge.fury.io/rb/sample_file.png)](http://badge.fury.io/rb/sample_file) [![Code Climate](https://codeclimate.com/github/mcls/sample_file.png)](https://codeclimate.com/github/mcls/sample_file)
+[![Gem Version](https://badge.fury.io/rb/sample_file.png)](http://badge.fury.io/rb/sample_file) [![Code Climate](https://codeclimate.com/github/mcls/sample_file.png)](https://codeclimate.com/github/mcls/sample_file) [![Build Status](https://travis-ci.org/mcls/sample_file.png?branch=master)](https://travis-ci.org/mcls/sample_file) [![Coverage Status](https://coveralls.io/repos/mcls/sample_file/badge.png?branch=master)](https://coveralls.io/r/mcls/sample_file?branch=master)
 
 The SampleFile gem provides an easy way to generate files while testing.  
 *Currently you can generate images and videos.*
