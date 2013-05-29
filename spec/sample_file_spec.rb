@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe SampleFile do
   %w(Image Video).each do |class_name|
-    klass = const_get("SampleFile::#{class_name}")
+    klass = SampleFile.const_get("#{class_name}")
 
     file_method = class_name.downcase
     describe file_method do
